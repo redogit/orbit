@@ -5,7 +5,7 @@
 /// </summary>
 public abstract class GameObjectContainer : IGameObjectContainer, IRender, IUpdate
 {
-    private readonly IList<IGameObject> GameObjects = new List<IGameObject>();
+    protected readonly IList<IGameObject> GameObjects = new List<IGameObject>();
 
     public IList<IGameObject> GameObjectsSnapshot => GameObjects.ToList();
 

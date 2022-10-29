@@ -15,9 +15,7 @@ public abstract class GameScene : GameObjectContainer, IGameScene
 
     public GameObject FindCollision(GameObject gameObject)
     {
-        return null;
-        // TODO: Definite room for improvement.
-        //return gameObjects.FirstOrDefault(g => !ReferenceEquals(g, gameObject) && g.IsCollisionDetectionEnabled && g.Bounds.IntersectsWith(gameObject.Bounds));
+        return (GameObject)GameObjects.FirstOrDefault(g => !ReferenceEquals(g, gameObject) && g.Bounds.IntersectsWith(gameObject.Bounds));
     }
 
     void IDrawable.Draw(ICanvas canvas, RectF dirtyRect) => Render(canvas, dirtyRect);
