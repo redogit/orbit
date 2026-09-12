@@ -23,6 +23,7 @@
   },
   "inherited_baseline": {
     "target": ".NET 6 MAUI Orbit engine and tests",
+    "status": "verified-predecessor-baseline",
     "relationship": "predecessor verification is independent of the REDOGIT provenance contract",
     "sdk_pin": "6.0.428",
     "observed_toolchain": {
@@ -30,6 +31,18 @@
       "maui_graphics": "6.0.501",
       "java": "11",
       "android_api": "31"
+    },
+    "verification": {
+      "windows": {
+        "workflow_run": 34719088760,
+        "conclusion": "success",
+        "checks": ["restore engine", "restore tests", "build multi-target engine", "build tests", "run tests", "pack engine"]
+      },
+      "macos": {
+        "workflow_run": 34719094126,
+        "conclusion": "success",
+        "checks": ["restore engine", "restore tests", "build multi-target engine", "build tests", "run tests", "pack engine"]
+      }
     },
     "local_deltas": [
       {
@@ -49,8 +62,8 @@
       },
       {
         "id": "android-prerequisite-reconstruction",
-        "change": "CI supplies JDK 11 and Android API 31 before the inherited multi-target build",
-        "reason": "The recovered Android workload requires JDK 11 and android.jar for API level 31; current hosted images default to newer toolchains."
+        "change": "install Android API 31 with the runner Java, then switch CI to JDK 11 for the inherited multi-target build",
+        "reason": "Today's sdkmanager requires modern Java while the recovered Xamarin/MAUI Android workload requires JDK 11; the inherited build also requires android.jar for API level 31."
       },
       {
         "id": "workflow-wrapper-and-scope",
