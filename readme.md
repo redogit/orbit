@@ -1,3 +1,11 @@
+# redogit fork note
+
+This repository is an upstream-derived fork of Orbit Engine. Local REDOGIT work preserves that provenance and keeps local changes distinct from upstream history. It is **not** the separate Orbit Lab research project.
+
+See [`REDOGIT.md`](REDOGIT.md) for the local successor rule.
+
+---
+
 # Orbit Engine
 
 The Orbit engine is a game engine built on top of .NET MAUI Graphics. The objective is to firstly enjoy the journey of building a game engine and secondly providing a framework that allows us to utilise the best parts of a cross-platform framework while building a 'typical' game.
