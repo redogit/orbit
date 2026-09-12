@@ -1,0 +1,44 @@
+name: REDOGIT fork contract
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'README.md'
+      - 'readme.md'
+      - 'REDOGIT.md'
+      - 'redogit.json'
+      - '.github/workflows/redogit-contract.yml'
+  pull_request:
+    paths:
+      - 'README.md'
+      - 'readme.md'
+      - 'REDOGIT.md'
+      - 'redogit.json'
+      - '.github/workflows/redogit-contract.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  verify-provenance-boundary:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Check fork contract
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          contract = json.loads(Path('redogit.json').read_text(encoding='utf-8'))
+          assert contract['schema'] == 'redogit/v1'
+          assert contract['repository'] == 'redogit/orbit'
+          assert contract['current']['status'] == 'provenance-boundary'
+          history = contract['history_policy']
+          assert history['preserve_predecessors'] is True
+          assert history['preserve_failures'] is True
+          assert history['rewrite_history'] is False
+          assert 'upstream authorship' in contract['boundary']['does_not_own']
+          print('PASS - Orbit fork provenance boundary')
+          PY
