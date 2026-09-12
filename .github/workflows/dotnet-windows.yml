@@ -34,8 +34,8 @@ jobs:
         dotnet-version: 6.0.x
     - name: Confirm inherited SDK baseline
       run: dotnet --version
-    - name: Install inherited MAUI workload
-      run: dotnet workload install maui --skip-manifest-update
+    - name: Install latest compatible .NET 6 MAUI workload
+      run: dotnet workload install maui
     - name: Restore engine dependencies
       run: dotnet restore engine/Orbit.Engine/Orbit.Engine.csproj
     - name: Restore test dependencies
