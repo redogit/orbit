@@ -32,8 +32,21 @@ jobs:
       uses: actions/setup-dotnet@v6
       with:
         dotnet-version: 6.0.x
-    - name: Confirm inherited SDK baseline
-      run: dotnet --version
+    - name: Setup inherited Java baseline
+      uses: actions/setup-java@v6
+      with:
+        distribution: temurin
+        java-version: '11'
+    - name: Confirm inherited toolchain baselines
+      shell: pwsh
+      run: |
+        dotnet --version
+        java -version
+    - name: Install Android API 31
+      shell: pwsh
+      run: |
+        & "$env:ANDROID_SDK_ROOT\cmdline-tools\latest\bin\sdkmanager.bat" "platforms;android-31"
+        if (-not (Test-Path "$env:ANDROID_SDK_ROOT\platforms\android-31\android.jar")) { throw "Android API 31 was not installed" }
     - name: Install latest compatible .NET 6 MAUI workload
       run: dotnet workload install maui
     - name: Restore engine dependencies
