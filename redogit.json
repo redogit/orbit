@@ -25,6 +25,12 @@
     "target": ".NET 6 MAUI Orbit engine and tests",
     "relationship": "predecessor verification is independent of the REDOGIT provenance contract",
     "sdk_pin": "6.0.428",
+    "observed_toolchain": {
+      "maui_manifest": "6.0.553",
+      "maui_graphics": "6.0.501",
+      "java": "11",
+      "android_api": "31"
+    },
     "local_deltas": [
       {
         "id": "win2d-dependency-alignment",
@@ -37,8 +43,18 @@
         "reason": "Modern runners otherwise selected SDK 10 and rejected inherited net6.0 MAUI workloads as out of support."
       },
       {
+        "id": "maui-manifest-refresh",
+        "change": "allow SDK 6 workload manifests to refresh to the surviving MAUI 6.0.553 line",
+        "reason": "The SDK-bundled 6.0.312 template pack is no longer available from the current NuGet feed."
+      },
+      {
+        "id": "android-prerequisite-reconstruction",
+        "change": "CI supplies JDK 11 and Android API 31 before the inherited multi-target build",
+        "reason": "The recovered Android workload requires JDK 11 and android.jar for API level 31; current hosted images default to newer toolchains."
+      },
+      {
         "id": "workflow-wrapper-and-scope",
-        "change": "checkout@v7, setup-dotnet@v6, read-only contents permission, engine-scoped triggers, concurrency cancellation",
+        "change": "checkout@v7, setup-dotnet@v6, setup-java@v6, read-only contents permission, engine-scoped triggers, concurrency cancellation",
         "reason": "Modernize transport without claiming the inherited engine itself has been migrated."
       }
     ]
