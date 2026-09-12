@@ -3,11 +3,24 @@ name: Build the Engine (Windows)
 on:
   push:
     branches: [ "main" ]
+    paths:
+      - 'engine/**'
+      - 'global.json'
+      - '.github/workflows/dotnet-windows.yml'
   pull_request:
     branches: [ "main" ]
+    paths:
+      - 'engine/**'
+      - 'global.json'
+      - '.github/workflows/dotnet-windows.yml'
+  workflow_dispatch:
 
 permissions:
   contents: read
+
+concurrency:
+  group: orbit-engine-windows-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -19,7 +32,9 @@ jobs:
       uses: actions/setup-dotnet@v6
       with:
         dotnet-version: 6.0.x
-    - name: workload install
+    - name: Confirm inherited SDK baseline
+      run: dotnet --version
+    - name: Install inherited MAUI workload
       run: dotnet workload install maui
     - name: Restore engine dependencies
       run: dotnet restore engine/Orbit.Engine/Orbit.Engine.csproj
