@@ -20,5 +20,27 @@
   "boundary": {
     "owns": ["local fork deltas", "explicit local successor work", "local provenance notes"],
     "does_not_own": ["upstream authorship", "upstream history", "separate Orbit Lab research lineage"]
+  },
+  "inherited_baseline": {
+    "target": ".NET 6 MAUI Orbit engine and tests",
+    "relationship": "predecessor verification is independent of the REDOGIT provenance contract",
+    "sdk_pin": "6.0.428",
+    "local_deltas": [
+      {
+        "id": "win2d-dependency-alignment",
+        "change": "Microsoft.Maui.Graphics.Win2D.WinUI.Desktop 6.0.403 -> 6.0.501",
+        "reason": "The inherited restore selected Microsoft.Maui.Dependencies 6.0.553, which requires Win2D >= 6.0.501."
+      },
+      {
+        "id": "sdk-selection-pin",
+        "change": "global.json pins SDK 6.0.428 with rollForward disabled",
+        "reason": "Modern runners otherwise selected SDK 10 and rejected inherited net6.0 MAUI workloads as out of support."
+      },
+      {
+        "id": "workflow-wrapper-and-scope",
+        "change": "checkout@v7, setup-dotnet@v6, read-only contents permission, engine-scoped triggers, concurrency cancellation",
+        "reason": "Modernize transport without claiming the inherited engine itself has been migrated."
+      }
+    ]
   }
 }
