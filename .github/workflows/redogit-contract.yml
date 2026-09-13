@@ -21,24 +21,28 @@ permissions:
   contents: read
 
 jobs:
+  contract:
+    uses: redogit/redogit/.github/workflows/verify-redogit.yml@77c355fc1d62d7aab6d8b30dfe8e96593c7cba22
+
   verify-provenance-boundary:
+    needs: contract
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - name: Check fork contract
+      - name: Check fork-specific provenance boundary
         run: |
           python3 - <<'PY'
           import json
           from pathlib import Path
 
           contract = json.loads(Path('redogit.json').read_text(encoding='utf-8'))
-          assert contract['schema'] == 'redogit/v1'
           assert contract['repository'] == 'redogit/orbit'
           assert contract['current']['status'] == 'provenance-boundary'
-          history = contract['history_policy']
-          assert history['preserve_predecessors'] is True
-          assert history['preserve_failures'] is True
-          assert history['rewrite_history'] is False
           assert 'upstream authorship' in contract['boundary']['does_not_own']
+          assert 'separate Orbit Lab research lineage' in contract['boundary']['does_not_own']
+          domain = set(contract['research_policy'].get('domain_distinctions', []))
+          assert 'UPSTREAM_SOURCE != LOCAL_FORK' in domain
+          assert 'PREDECESSOR_BASELINE != LOCAL_SUCCESSOR' in domain
+          assert 'ORBIT_ENGINE != ORBIT_RESEARCH_LAB' in domain
           print('PASS - Orbit fork provenance boundary')
           PY
