@@ -4,6 +4,8 @@ This repository is an upstream-derived fork of Orbit Engine. Local REDOGIT work 
 
 See [`REDOGIT.md`](REDOGIT.md) for the local successor rule.
 
+Commercial-access note: this repository is upstream-derived. Upstream and third-party licenses remain authoritative for their covered material. The owner's no-commercial-access policy applies only to owner-controlled original material not already licensed otherwise. See [`COMMERCIAL_ACCESS_POLICY.md`](COMMERCIAL_ACCESS_POLICY.md).
+
 ---
 
 # Orbit Engine
