@@ -1,5 +1,7 @@
 # redogit fork note
 
+> **Public page:** https://redogit.github.io/orbit/ · **Main / About:** https://redogit.github.io/redogit/
+
 This repository is an upstream-derived fork of Orbit Engine. Local REDOGIT work preserves that provenance and keeps local changes distinct from upstream history. It is **not** the separate Orbit Lab research project.
 
 See [`REDOGIT.md`](REDOGIT.md) for the local successor rule.
