@@ -1,0 +1,74 @@
+{
+  "source": "ChatGPT Library; original bytes retained",
+  "archives": [
+    {
+      "name": "Orbit_Lab_Reflow_1_0_STATIC_SEAL_SUCCESSOR_2026-09-30.zip",
+      "bytes": 727414,
+      "sha256": "4920420d92f76ad53a323af9a6ed84908cc9be03024ee6295222ab623cd89072",
+      "parts": [],
+      "git_blob": "142c9031309f193aec2a090b3c2d6bdb28dfb553"
+    },
+    {
+      "name": "Orbit_Library_Current_2026-09-13.zip",
+      "bytes": 16544853,
+      "sha256": "4450ab459138b48bf429c5dbcd53dba1161d794e32b45bddcd4275e54369126a",
+      "parts": [
+        {
+          "name": "Orbit_Library_Current_2026-09-13.zip.part001",
+          "bytes": 2097152,
+          "sha256": "9af55870e95a428270574d2290433a3198f89d017a463926a65dc64851d888a1",
+          "git_blob": "9b7a10d09148a5a71027657324b16c3f2178ddaf"
+        },
+        {
+          "name": "Orbit_Library_Current_2026-09-13.zip.part002",
+          "bytes": 2097152,
+          "sha256": "cb1bf65e0a47f2b2729423c918a7470a47594502e60f3a7300f716ad8e5af6f4",
+          "git_blob": "428d794831cd181bfc5b204977156f8eea6e9af7"
+        },
+        {
+          "name": "Orbit_Library_Current_2026-09-13.zip.part003",
+          "bytes": 2097152,
+          "sha256": "1838360498641859e71aa678034123e47a29feb86c187abdb48ee5e5479b097a",
+          "git_blob": "8f9ca4bb6ae6fbbd4bf9e84a85485bc7078bb83c"
+        },
+        {
+          "name": "Orbit_Library_Current_2026-09-13.zip.part004",
+          "bytes": 2097152,
+          "sha256": "f58f34f9406d84d1e9ec480be918e5ca20b6d167f9cbcc533964f0cdc2a08e36",
+          "git_blob": "4855948cc3953e534d3cebec50db27afe5561351"
+        },
+        {
+          "name": "Orbit_Library_Current_2026-09-13.zip.part005",
+          "bytes": 2097152,
+          "sha256": "322ea0cfa37606f517450ba08068b5b12a606d11216661d81dff3cc8d3546d89",
+          "git_blob": "89e1590d649cff26713fd12494913a4ad0083e9d"
+        },
+        {
+          "name": "Orbit_Library_Current_2026-09-13.zip.part006",
+          "bytes": 2097152,
+          "sha256": "cfdc5f967294a34f436d6a88b2589ef20e67dca45136e62f0a45738ef1ab4011",
+          "git_blob": "95cfca17a550d9f76b830f61501c2f25ea3ab834"
+        },
+        {
+          "name": "Orbit_Library_Current_2026-09-13.zip.part007",
+          "bytes": 2097152,
+          "sha256": "9b7c7dcd98ff1f76877ca84d15ddbea298ebc0e3140dd2ee8b0c1536e9cb37fe",
+          "git_blob": "c0d09728b4fc54226e99a699f0d1974952d11621"
+        },
+        {
+          "name": "Orbit_Library_Current_2026-09-13.zip.part008",
+          "bytes": 1864789,
+          "sha256": "e41132e819685fb5e1a049afc7e65cec1f4db75ec457f5ee064741864ea22460",
+          "git_blob": "73dd1e0088cfeefc794d0d9e2c0eb5f66ebdce04"
+        }
+      ]
+    }
+  ],
+  "library_sources": {
+    "Orbit_Library_Current_2026-09-13.zip": "libfile_856029793530819190fee4a83b533cfd",
+    "Orbit_Lab_Reflow_1_0_STATIC_SEAL_SUCCESSOR_2026-09-30.zip": "libfile_be7079897da48191836b36fd644feafa"
+  },
+  "entry_pointer": "/Orbit Lab/CURRENT.md",
+  "reminder": "Orbit Lab Cycle disabled at user request 2026-10-05",
+  "custody": "WITHHELD: exact source blob remains unrecovered"
+}
